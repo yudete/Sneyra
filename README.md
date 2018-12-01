@@ -3,16 +3,15 @@
 
 # Sneyra
 
-Sneyra は [Klasa](https://github.com/dirigeants/klasa/) をベースとし、[Discord.js](https://github.com/hydrabolt/discord.js) を Discord API へ接続するために使用する music bot です。
+Sneyra は [Klasa](https://github.com/dirigeants/klasa/) をベースとし、[Discord.js](https://github.com/hydrabolt/discord.js) を使用する music bot です。
 
-## Features
+## 機能
 
 - すべての基本的なmusic botのコマンドが搭載されており、スキップ機能も含まれます。
 - echo コマンドもあります。なんであったらアカンの？
-- 美しいコードで、編集しやすいです。完璧にモジュール化・クラス化されています。
-- Full Music Handler interface and caching, make sure she replies 'smartly'!
+- 美しいコードで、編集が簡単にできます。完璧にモジュール化・クラス化されています。
 
-## Requirements
+## 必要なもの
 
 - `git` command line ([Windows](https://git-scm.com/download/win)|[Linux](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)|[MacOS](https://git-scm.com/download/mac)) installed
 - `node` [Version 8.1.0 or higher](https://nodejs.org)
@@ -20,7 +19,7 @@ Sneyra は [Klasa](https://github.com/dirigeants/klasa/) をベースとし、[D
 - `node-opus`: `npm install node-opus` (alternatively you can use opusscript, but it's very bad for production, has memoryleaks and stream/quality issues).
 - A **good** network connection.
 
-## Downloading
+## ダウンロード
 
 In a command prompt in your projects folder (wherever that may be) run the following:
 

@@ -5,12 +5,12 @@ const getInfo = require('util').promisify(require('ytdl-core').getInfo);
 module.exports = class extends MusicCommand {
 
 	constructor(...args) {
-		super(...args, { description: 'Get information from the current song.' });
+		super(...args, { description: '現在再生されている曲の情報を表示します。' });
 	}
 
 	async run(msg) {
 		const { remaining, queue, playing } = msg.guild.music;
-		if (!playing) throw `Are you speaking to me? Because my deck is empty...`;
+		if (!playing) throw `キューに何もありません。`;
 
 		const [song] = queue;
 		const info = await getInfo(song.url);
@@ -20,10 +20,10 @@ module.exports = class extends MusicCommand {
 			.setColor(12916736)
 			.setTitle(info.title)
 			.setURL(`https://youtu.be/${info.vid}`)
-			.setAuthor(info.author.name || 'Unknown', info.author.avatar || null, info.author.channel_url || null)
+			.setAuthor(info.author.name || '不明', info.author.avatar || null, info.author.channel_url || null)
 			.setDescription([
-				`**Duration**: ${showSeconds(parseInt(info.length_seconds) * 1000)} [Time remaining: ${showSeconds(remaining)}]`,
-				`**Description**: ${splitText(info.description, 500)}`
+				`**長さ**: ${showSeconds(parseInt(info.length_seconds) * 1000)} [残り時間: ${showSeconds(remaining)}]`,
+				`**概要**: ${splitText(info.description, 500)}`
 			].join('\n\n'))
 			.setThumbnail(info.thumbnail_url)
 			.setTimestamp());

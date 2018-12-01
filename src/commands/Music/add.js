@@ -8,7 +8,7 @@ module.exports = class extends MusicCommand {
 
 	constructor(...args) {
 		super(...args, {
-			description: 'Adds a song the the queue.',
+			description: 'キューに曲を追加します。',
 			usage: '<url:string>'
 		});
 	}
@@ -20,7 +20,7 @@ module.exports = class extends MusicCommand {
 		const { music } = msg.guild;
 		const song = await music.add(msg.author, youtubeURL);
 
-		return msg.sendMessage(`🎵 Added **${song.title}** to the queue 🎶`);
+		return msg.sendMessage(`🎵 **${song.title}** を追加しました 🎶`);
 	}
 
 	async getURL(url) {
