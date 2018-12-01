@@ -10,7 +10,7 @@ module.exports = class extends MusicCommand {
 		const { music } = msg.guild;
 
 		if (!music.queue.length)
-			return msg.sendMessage(`コマンド `${msg.guild.settings.prefix}add\` を使って、何か曲を追加してください。`);
+			return msg.sendMessage('コマンド `${msg.guild.settings.prefix}add\` を使って、何か曲を追加してください。');
 
 		if (!music.voiceChannel) await this.store.get('join').run(msg);
 
