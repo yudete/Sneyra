@@ -3,13 +3,13 @@
 
 # Sneyra
 
-Sneyra is a music bot (yeah, another bot in this world) built on top of [Klasa](https://github.com/dirigeants/klasa/), and uses [Discord.js](https://github.com/hydrabolt/discord.js) to connect to the Discord API.
+Sneyra は [Klasa](https://github.com/dirigeants/klasa/) をベースとし、[Discord.js](https://github.com/hydrabolt/discord.js) を Discord API へ接続するために使用する music bot です。
 
 ## Features
 
-- All basic music bot commands, included skip prompting (based on the 40% of users connected to the voice channel, after 4 users).
-- An echo command, because, why not?
-- Clean code, easy to modify. Fully modular and classbased.
+- すべての基本的なmusic botのコマンドが搭載されており、スキップ機能も含まれます。
+- echo コマンドもあります。なんであったらアカンの？
+- 美しいコードで、編集しやすいです。完璧にモジュール化・クラス化されています。
 - Full Music Handler interface and caching, make sure she replies 'smartly'!
 
 ## Requirements
