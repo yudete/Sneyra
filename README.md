@@ -3,33 +3,34 @@
 
 # Sneyra
 
-Sneyra は [Klasa](https://github.com/dirigeants/klasa/) をベースとし、[Discord.js](https://github.com/hydrabolt/discord.js) を使用する music bot です。
+Sneyra は [Klasa](https://github.com/dirigeants/klasa/) をベースとし、[Discord.js](https://github.com/hydrabolt/discord.js) を Discord API へ接続するために使用する music bot です。
 
-## 機能
+## Features
 
 - すべての基本的なmusic botのコマンドが搭載されており、スキップ機能も含まれます。
 - echo コマンドもあります。なんであったらアカンの？
-- 美しいコードで、編集が簡単にできます。完璧にモジュール化・クラス化されています。
+- 美しいコードで、編集しやすいです。完璧にモジュール化・クラス化されています。
+- Full Music Handler interface and caching, make sure she replies 'smartly'!
 
-## 必要なもの
+## Requirements
 
-- `git` command line ([Windows](https://git-scm.com/download/win)|[Linux](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)|[MacOS](https://git-scm.com/download/mac)) installed
-- `node` [Version 8.1.0 or higher](https://nodejs.org)
+- `git`
+- `node` [バージョン 8.1.0 以上](https://nodejs.org)
 - `ffmpeg`: `npm install --global ffmpeg-binaries`
-- `node-opus`: `npm install node-opus` (alternatively you can use opusscript, but it's very bad for production, has memoryleaks and stream/quality issues).
-- A **good** network connection.
+- `node-opus`: `npm install node-opus` (opusscript を使うこともできますが、不安定です。本番環境ではメモリリークや音質の問題があるため、推奨しません。)
+- イケてるインターネット回線
 
-## ダウンロード
+## Downloading
 
-In a command prompt in your projects folder (wherever that may be) run the following:
+以下のコマンドであなたのコンピュータへダウンロードできます。
 
 ```
-git clone https://github.com/kyranet/Sneyra
+git clone https://github.com/yudete/Sneyra
 ```
 
-Once finished:
+次に、これらの操作をしてください:
 
-- In the folder from where you ran the git command, run `cd Sneyra` and then run `npm install`
-- Rename `config.json.example` to `config.json`
-- Edit `config.json` and enter your bot token and the YouTube Search API token.
-- **NEVER UPLOAD THIS FILE WITH YOUR TOKENS ANYWHERE, TO DO SO, YOU ARE LETTING OTHER PEOPLE USE THE TOKEN TO DESTROY ALL THE GUILDS YOUR BOT IS IN. IF YOU DID, RESET YOUR TOKEN IN DISCORD'S APPLICATION PAGE**.
+- git コマンドを実行した場所で `cd Sneyra` を実行し、それから `npm install` を実行してください。
+- `config.json.example` を `config.json` へリネームしてください。
+- `config.json` を編集し、あなたの bot の token や YouTube Search API の token を入力してください。
+- **設定ファイルをインターネット上にアップロードしないでください。そうすると、誰でもあなたの bot を操作できるようになってしまい、挑戦的な破壊を試みる可能性があります。もし、すでにアップロードしてしまった場合、Discord Application のページで token をリセットしてください。**.
