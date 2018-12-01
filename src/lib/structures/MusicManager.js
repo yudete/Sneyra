@@ -157,7 +157,7 @@ class MusicManager {
 	async add(user, url) {
 		const song = await getInfoAsync(url).catch((err) => {
 			this.client.emit('log', err, 'error');
-			throw `Something happened with YouTube URL: ${url}\n${codeBlock('', err)}`;
+			throw `不正なYouTubeのリンクです: ${url}\n${codeBlock('', err)}`;
 		});
 
 		const metadata = {
@@ -197,7 +197,7 @@ class MusicManager {
 	 */
 	join(voiceChannel) {
 		return voiceChannel.join().catch((err) => {
-			if (String(err).includes('ECONNRESET')) throw 'There was an issue connecting to the voice channel, please try again.';
+			if (String(err).includes('ECONNRESET')) throw 'なにか問題が発生しました。もう1度お試しください。';
 			this.client.emit('error', err);
 			throw err;
 		});
@@ -209,7 +209,7 @@ class MusicManager {
 	 * @returns {Promise<this>}
 	 */
 	async leave() {
-		if (!this.voiceChannel) throw 'I already left the voice channel! You might want me to be in one in order to leave it...';
+		if (!this.voiceChannel) throw 'すでに音声チャンネルから抜けています...';
 		await this.voiceChannel.leave();
 		if (this.voiceChannel) this.forceDisconnect();
 
@@ -218,17 +218,17 @@ class MusicManager {
 	}
 
 	async play() {
-		if (!this.voiceChannel) throw 'Where am I supposed to play the music? I am not in a voice channel!';
+		if (!this.voiceChannel) throw '音声チャンネルへ接続していません。`connect` コマンドで呼んでください。';
 		if (!this.connection) {
-			await this.channel.send(`This dj table isn't connected! Let me unplug and plug it again`)
+			await this.channel.send('何か問題が発生しています。一度 bot を蹴ってから、もう1度呼んでください。')
 				.catch(error => this.client.emit('error', error));
 
 			const { voiceChannel } = this;
 			this.forceDisconnect();
 			await this.join(voiceChannel);
-			if (!this.connection) throw 'This dj table is broken! Try again later...';
+			if (!this.connection) throw '何か問題が発生しました。もう1度試してみてください。';
 		}
-		if (!this.queue.length) throw 'No songs left in the queue!';
+		if (!this.queue.length) throw 'キューに何も追加されていません。';
 
 		const [song] = this.queue;
 

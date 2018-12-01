@@ -4,7 +4,7 @@ module.exports = class extends MusicCommand {
 
 	constructor(...args) {
 		super(...args, {
-			description: 'Prune the queue list.',
+			description: 'キューを綺麗さっぱり削除します。',
 			requireMusic: true
 		});
 	}
@@ -13,7 +13,7 @@ module.exports = class extends MusicCommand {
 		const { music } = msg.guild;
 
 		if (music.voiceChannel.members.size > 4)
-			if (!await msg.hasAtLeastPermissionLevel(5)) throw 'You can\'t execute this command when there are over 4 members. You must be at least a Dj Member.';
+			if (!await msg.hasAtLeastPermissionLevel(5)) throw '4人以上接続している音声チャンネルでこのコマンドを実行することはできません。';
 
 		music.prune();
 		return msg.sendMessage(`🗑 Pruned ${music.queue.length}`);

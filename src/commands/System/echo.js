@@ -5,7 +5,7 @@ module.exports = class extends Command {
 	constructor(...args) {
 		super(...args, {
 			aliases: ['talk'],
-			description: 'Make Sneyra talk in another channel.',
+			description: '他のチャンネルへチャットを送信します。',
 			permissionLevel: 10,
 			usage: '[channel:channel] [message:string] [...]',
 			usageDelim: ' '
@@ -18,7 +18,7 @@ module.exports = class extends Command {
 		const attachment = msg.attachments.size > 0 ? msg.attachments.first().url : null;
 		content = content.length ? content.join(' ') : '';
 
-		if (content.length === 0 && !attachment) throw 'I have no content nor attachment to send, please write something.';
+		if (content.length === 0 && !attachment) throw '送信する文章がありません。何か指定してください。';
 
 		const options = {};
 		if (attachment) options.files = [{ attachment }];

@@ -4,17 +4,17 @@ module.exports = class extends MusicCommand {
 
 	constructor(...args) {
 		super(...args, {
-			description: 'Resumes the current song.',
+			description: '一時停止されている曲を再開します。',
 			requireMusic: true
 		});
 	}
 
 	async run(msg) {
-		if (msg.guild.music.idling) throw 'My deck is empty! Give me a disk first so I can lift the spirits in this room!';
-		if (msg.guild.music.playing) throw 'Is this song too silent, my friend? Because it is indeed... playing.';
+		if (msg.guild.music.idling) throw '曲がキューの中に追加されていません。';
+		if (msg.guild.music.playing) throw 'すでに再生中です。';
 
 		msg.guild.music.resume();
-		return msg.sendMessage('▶ Resumed');
+		return msg.sendMessage('▶ リジュームしました。');
 	}
 
 };

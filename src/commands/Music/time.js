@@ -3,13 +3,13 @@ const { MusicCommand, util: { showSeconds } } = require('../../index');
 module.exports = class extends MusicCommand {
 
 	constructor(...args) {
-		super(...args, { description: 'Check how much time is left for the song to end.' });
+		super(...args, { description: '次の曲が再生されるまでの時間を表示します。' });
 	}
 
 	async run(msg) {
 		const { playing, remaining } = msg.guild.music;
-		if (!playing) throw `Are you speaking to me? Because my deck is empty...`;
-		return msg.sendMessage(`🕰 Time remaining: ${showSeconds(remaining)}`);
+		if (!playing) throw `何も再生していません。`;
+		return msg.sendMessage(`🕰 残り時間: ${showSeconds(remaining)}`);
 	}
 
 };

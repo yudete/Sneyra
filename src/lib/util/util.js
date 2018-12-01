@@ -24,7 +24,7 @@ class Util {
      */
 	static showSeconds(duration) {
 		const seconds = Math.floor(duration / SECOND) % 60;
-		if (duration < MINUTE) return seconds === 1 ? 'a second' : `${seconds} seconds`;
+		if (duration < MINUTE) return seconds === 1 ? '1秒' : `${seconds} 秒`;
 
 		const minutes = Math.floor(duration / MINUTE) % 60;
 		let output = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
